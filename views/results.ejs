@@ -1,0 +1,17 @@
+<%- include('includes/head.ejs') %>
+    <main>
+        <h1>Search Result</h1>
+        <h2>
+            <%= searchTerm.toUpperCase() %>
+        </h2>
+        <form action="/add-favs" method="post"> 
+            <input type="hidden" name="searchTerm" value="<%= searchTerm %>">
+            <button type="submit">Add to favorites</button>
+        </form>
+            <ul>
+            <% for (let key in searchData) { %>
+                <li><strong><%= key %>:</strong> <%= searchData[key] %></li>
+            <% } %>
+            </ul>
+    </main>
+<%- include('includes/end.ejs') %>
